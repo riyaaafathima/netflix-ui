@@ -13,6 +13,7 @@ create REact using vite
 -implement sign in user Api
 -created Redux Store with userSlice
 -implemented the sigout
+-preventnavigation
 
 
 #features

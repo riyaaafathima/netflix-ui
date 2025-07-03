@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import checkValidateData from "../Utils/validate";
 import {
@@ -14,7 +13,6 @@ import { useDispatch } from "react-redux";
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const email = useRef<HTMLInputElement>(null);
@@ -47,9 +45,7 @@ const Login = () => {
                     displayName: displayName || "",
                     photoURL: photoURL || "",
                   })
-                );
-                navigate("/browse");
-            }
+                );            }
           })
           .catch((error)=>{
              setError(error.message)
@@ -67,7 +63,6 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

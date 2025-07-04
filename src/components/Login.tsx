@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import checkValidateData from "../Utils/validate";
+import {ICON} from '../Utils/constants'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -32,7 +33,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current?.value||"",
-            photoURL:'https://lh3.googleusercontent.com/a/ACg8ocI71ZXxJZaxNp9qdZeDMkSbyW2f6_MMc7njO91L8ClkV9CxTQI=s192-c-rg-br100'
+            photoURL:ICON
           })
            .then(() => {
               const currentUser = auth.currentUser;

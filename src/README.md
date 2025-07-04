@@ -14,6 +14,16 @@ create REact using vite
 -created Redux Store with userSlice
 -implemented the sigout
 -preventnavigation
+-unsubscribed to the onAuthstateChanged-add hardcorder values to the constant files
+-register tmdb create an app & get access token
+-get data from tmdb now playing movies list api
+-custom hook for nowPlayingMovies
+-create MovieSlice
+-update Store with movie data
+-planning for trailer video main and -secondarycontainer
+-fetch data for trailer vodeo data
+-tailwind classes to make main container look awesome
+
 
 
 #features

@@ -44,7 +44,7 @@ const Header = () => {
     return ()=>unsubscribe()
   }, []);
   return (
-    <div className="absolute top-0 left-0 px-8 py-4 w-full z-10 bg-gradient-to-b from-black/80 flex justify-between">
+    <div className="absolute top-0 left-0 px-8 py-4 w-full z-50 bg-gradient-to-b from-black/80 flex justify-between">
       <img
         className="w-[160px] h-auto mt-[2vh] ml-[15vh]"
         src={LOGO}

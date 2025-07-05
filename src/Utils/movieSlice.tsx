@@ -1,24 +1,46 @@
-import { createSlice } from "@reduxjs/toolkit";
+import type {  PayloadAction } from "@reduxjs/toolkit";
+import  {createSlice } from "@reduxjs/toolkit";
+import type { Movie } from '../types/types';
+import type { Video } from '../types/types';
 
+type MovieState = {
+  nowPlayingMovies: Movie[];
+  nowPopularMovies: Movie[];
+  nowTrendingMovies: Movie[];
+  nowUpcomingMovies: Movie[];
+  trailervideo: Video | null;
+};
+
+const initialState: MovieState = {
+  nowPlayingMovies: [],
+  nowPopularMovies: [],
+  nowTrendingMovies: [],
+  nowUpcomingMovies: [],
+  trailervideo: null,
+};
 
 const movieSlice = createSlice({
-    name:'movies',
-    initialState:{
-        nowPlayingMovies:null,
-        trailervideo:null
-
+  name: 'movies',
+  initialState,
+  reducers: {
+    addNowPlayingMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.nowPlayingMovies = action.payload;
     },
-    reducers:{
-        addNowPlayingMovies:(state,action)=>{
-            state.nowPlayingMovies=action.payload;
-        },
-        addTraileVideo:(state,action)=>{
-            state.trailervideo=action.payload;
-        }
+    addNowPopularMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.nowPopularMovies = action.payload;
     },
+    addNowTrendingMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.nowTrendingMovies = action.payload;
+    },
+    addNowUpcomingMovies: (state, action: PayloadAction<Movie[]>) => {
+      state.nowUpcomingMovies = action.payload;
+    },
+    addTraileVideo: (state, action: PayloadAction<Video>) => {
+      state.trailervideo = action.payload;
+    },
+  },
 });
 
+export const { addNowPlayingMovies, addTraileVideo,addNowPopularMovies,addNowTrendingMovies,addNowUpcomingMovies } = movieSlice.actions;
 
-export const{addNowPlayingMovies,addTraileVideo}=movieSlice.actions
-
-export default movieSlice.reducer
+export default movieSlice.reducer;

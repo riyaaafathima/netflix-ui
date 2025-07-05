@@ -1,38 +1,24 @@
-
-
-
-
 // firebase.ts
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import.meta.env.VITE_apiKey;
 
 // import { getAnalytics } from "firebase/analytics"; // Optional
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyD1p1sd2iMHVQLnes52OxEhFMIIcGkIBiA",
-  authDomain: "netflix-clone-2ea13.firebaseapp.com",
-  projectId: "netflix-clone-2ea13",
-  storageBucket: "netflix-clone-2ea13.firebasestorage.app",
-  messagingSenderId: "469360807059",
-  appId: "1:469360807059:web:5ed843d81b7ac0ec711166",
-  measurementId: "G-P715VP5YF2"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: import.meta.env.VITE_measurementId,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 // const analytics = getAnalytics(app); // optional
- export const auth = getAuth();
+export const auth = getAuth();
 
 export default app;
-
-
-
-
-
-
-
-
-
-

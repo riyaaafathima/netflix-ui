@@ -23,6 +23,11 @@ create REact using vite
 -planning for trailer video main and -secondarycontainer
 -fetch data for trailer vodeo data
 -tailwind classes to make main container look awesome
+-implemented watchlist
+-watchlist Slice creates and stored the watchlist reducer in store
+-watchlist button on the header 
+-add to watchlist 
+showed the added watchlist on the page
 
 
 

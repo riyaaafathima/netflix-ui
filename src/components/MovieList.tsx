@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import type { Movie } from "../types/types"; // 👈
+import type { Movie } from "../types/types"; 
 
 type MovieListProps = {
   title: string;

@@ -17,5 +17,4 @@ const GptSearch=()=> {
     </div>
   )
 }
-
 export default GptSearch

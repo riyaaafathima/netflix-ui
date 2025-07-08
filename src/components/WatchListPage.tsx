@@ -19,7 +19,7 @@ const WatchlistPage = () => {
           Your watchlist is empty
         </h1>
         <button
-          className="p-2 px-5 m-6 rounded-lg bg-red-700 hover:bg-red-500 transition-discrete cursor-pointer"
+          className="p-2 px-5 m-6 rounded-lg bg-red-700 hover:bg-red-500 transition-discrete cursor-pointer text-lg text-white"
           onClick={() => navigate("/browse")}
         >
           Add your Movies🍿

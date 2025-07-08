@@ -9,16 +9,19 @@ import { useDispatch } from "react-redux";
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { toggleGptView } from "../Utils/gptSlice";
-import { Link } from "react-router-dom";
+
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const showGptSearch=useSelector((store:RootState)=>store.gpt.showGptSearch);
   const user = useSelector((store: RootState) => store.user);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
+        console.log(error);
+        
         navigate("/error");
       });
   };
@@ -59,11 +62,11 @@ const Header = () => {
       />
       {user && (
         <div className="flex p-2">
-          <button
+         <button
             onClick={handleGptSearchClick}
             className="p-2 px-5 bg-orange-400 mr-5 rounded-lg text-md text-white"
           >
-            GPT Search
+            {showGptSearch?' GPT Search':'Home'}
           </button >
           <button 
           onClick={()=>navigate('/watchlist')}

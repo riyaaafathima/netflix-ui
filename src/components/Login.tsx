@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import checkValidateData from "../Utils/validate";
-import {ICON} from '../Utils/constants'
+import { ICON } from "../Utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -32,10 +32,10 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current?.value||"",
-            photoURL:ICON
+            displayName: name.current?.value || "",
+            photoURL: ICON,
           })
-           .then(() => {
+            .then(() => {
               const currentUser = auth.currentUser;
               if (currentUser) {
                 const { uid, email, displayName, photoURL } = currentUser;
@@ -46,11 +46,12 @@ const Login = () => {
                     displayName: displayName || "",
                     photoURL: photoURL || "",
                   })
-                );            }
-          })
-          .catch((error)=>{
-             setError(error.message)
-          })
+                );
+              }
+            })
+            .catch((error) => {
+              setError(error.message);
+            });
           console.log("signed up", user);
         })
         .catch((error) => {

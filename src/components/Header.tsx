@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { LOGO, ICON } from "../Utils/constants";
+import { LOGO, ICON, SUPPORTED_LANGS } from "../Utils/constants";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../Utils/appStore";
@@ -9,19 +9,21 @@ import { useDispatch } from "react-redux";
 import { auth } from "../Utils/firebase";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { toggleGptView } from "../Utils/gptSlice";
-
+import lang from "../Utils/languagrConstant";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const showGptSearch=useSelector((store:RootState)=>store.gpt.showGptSearch);
+  const showGptSearch = useSelector(
+    (store: RootState) => store.gpt.showGptSearch
+  );
   const user = useSelector((store: RootState) => store.user);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
         console.log(error);
-        
+
         navigate("/error");
       });
   };
@@ -62,15 +64,23 @@ const Header = () => {
       />
       {user && (
         <div className="flex p-2">
-         <button
+          <select className="p-2 m-4 bg-gray-900 text-white" name="down-lang" id="">
+            {SUPPORTED_LANGS.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+          <button
             onClick={handleGptSearchClick}
             className="p-2 px-5 bg-orange-400 mr-5 rounded-lg text-md text-white"
           >
-            {showGptSearch?' GPT Search':'Home'}
-          </button >
-          <button 
-          onClick={()=>navigate('/watchlist')}
-          className="p-2 px-5 bg-amber-400 mr-5 rounded-lg text-md text-white">
+            {showGptSearch ? " GPT Search" : "Home"}
+          </button>
+          <button
+            onClick={() => navigate("/watchlist")}
+            className="p-2 px-5 bg-amber-400 mr-5 rounded-lg text-md text-white"
+          >
             Watch list
           </button>
 
